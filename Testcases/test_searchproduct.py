@@ -1,4 +1,5 @@
 import logging
+import time
 
 from Setup.Basetest import BaseTest
 from Page_Objects.SearchProduct.Search import Searchbar
@@ -13,3 +14,5 @@ class Test_search(BaseTest):
 
         product_search = Searchbar(self.driver)
         product_search.search()
+        time.sleep(10)
+
