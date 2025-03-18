@@ -29,7 +29,7 @@ class BaseTest:
         self.driver.maximize_window()
         self.driver.implicitly_wait(5)
 
-        creds_path = r"C:\Users\manishag\OneDrive - Infinite Computer Solutions (India) Limited\Documents\Final Project\Credentials\creds.json"
+        creds_path = r"C:\Users\manishag\OneDrive - Infinite Computer Solutions (India) Limited\Documents\Manisha_Jeevee\Credentials\creds.json"
         with open(creds_path,'r') as f:
             self.creds = json.load(f)
 
