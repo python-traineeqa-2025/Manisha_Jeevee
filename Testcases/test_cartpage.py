@@ -1,10 +1,14 @@
 import logging
 import time
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from Page_Objects.SearchProduct.Search import Searchbar
 from Setup.Basetest import BaseTest
 from Page_Objects.Login.Loginpage import Login_page
 from Page_Objects.Cart.CartPage import Cart
+from selenium.webdriver.support import expected_conditions as EC
 
 class Test_Cart(BaseTest):
 
@@ -26,8 +30,37 @@ class Test_Cart(BaseTest):
 
         product_search = Searchbar(self.driver)
         product_search.search()
-        time.sleep(5)
+        time.sleep(10)
 
         cart_button =  Cart(self.driver)
         cart_button.cart()
         time.sleep(5)
+
+        carticon = Cart(self.driver)
+        carticon.cart_icon()
+        time.sleep(5)
+
+        # cart_product = Cart(self.driver)
+        # cart_product.cart_icon()
+
+        product_name = "Ethisun Sunscreen-100gm"
+        if carticon.is_product_in_cart(product_name):
+            logging.info(f"{product_name} is in the cart.")
+        else:
+            logging.info(f"{product_name} is not in the cart.")
+
+
+        cart_increment = Cart(self.driver)
+        cart_increment.cart_update()
+
+        logging.info("one more item added to the cart successfully")
+
+        cart_decrement = Cart(self.driver)
+        cart_decrement.cart_update()
+        logging.info("one item removed from the cart successfully")
+
+        time.sleep(5)
+
+
+
+
