@@ -59,8 +59,15 @@ class Test_Cart(BaseTest):
         cart_decrement.cart_decrement_update()
         logging.info("one item removed from the cart successfully")
 
-        # totalprice = Cart(self.driver)
-        # totalprice.total_price()
+        totalprice = Cart(self.driver)
+        totalprice.total_price()
+
+        # product_remove = Cart(self.driver)
+        # product_remove.remove_product_from_cart()
+
+
+
+
 
 
 

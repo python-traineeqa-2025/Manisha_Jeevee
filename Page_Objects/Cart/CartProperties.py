@@ -21,3 +21,7 @@ class Cart_Properties(Cart_locators):
     @property
     def total_price_input(self):
         return self.driver.find_element(*Cart_locators.TOTAL_PRICE)
+
+    @property
+    def quamtity_input(self):
+        return self.driver.find_element(*Cart_locators.QUANTITY)

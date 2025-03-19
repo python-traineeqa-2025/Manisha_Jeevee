@@ -1,5 +1,7 @@
+import logging
 import time
 
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -41,10 +43,7 @@ class Cart(Cart_Properties):
         cart_increment_button.click()
         time.sleep(5)
 
-        quantity = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR,
-                                            'body > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)'))
-        )
+        quantity = self.quamtity_input
         quantity_text = quantity.text
         print(f"Quantity of the product after product added: {quantity_text}")
 
@@ -53,21 +52,39 @@ class Cart(Cart_Properties):
         cart_decrement_button = self.cart_decrement_icon
         cart_decrement_button.click()
 
-        quantity = WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR,
-                                            'body > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)'))
-        )
+        quantity = self.quamtity_input
         quantity_text = quantity.text
         print(f"Quantity of the product after product added: {quantity_text}")
         time.sleep(5)
 
 
-    # def total_price(self):
-    #
-    #
-    #     total_price = self.total_price_input
-    #     total_price_text = total_price.text  # Correct method to get the text
-    #     return total_price_text
+    def total_price(self):
+
+        # cart_decrement_button = self.cart_decrement_icon
+        # cart_decrement_button.click()
+
+        total_price = self.total_price_input
+        total_price_text = total_price.text
+        print(f"Total Price of the product is: {total_price_text}")
+
+    def remove_product_from_cart(self):
+
+        product = WebDriverWait(self.driver,2).until(
+            EC.presence_of_element_located((By.XPATH,'//div[contains(@class,\'flex space-x-2 justify-between items-start\')]//span[contains(@class,\'select-none text-lg leading-none flex items-center justify-center\')]//*[name()=\'svg\']'))
+
+        )
+        product.click()
+
+        WebDriverWait(self.driver, 2).until(EC.alert_is_present())
+        alert = self.driver.switch_to.alert
+        alert.accept()  # or alert.dismiss()
+        time.sleep(5)
+
+
+
+
+
+
 
 
 
