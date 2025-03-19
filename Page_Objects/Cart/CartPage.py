@@ -4,7 +4,7 @@ import time
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-
+from selenium.webdriver.common.alert import Alert
 from Page_Objects.Cart.CartProperties import Cart_Properties
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -75,9 +75,11 @@ class Cart(Cart_Properties):
         )
         product.click()
 
-        WebDriverWait(self.driver, 2).until(EC.alert_is_present())
-        alert = self.driver.switch_to.alert
-        alert.accept()  # or alert.dismiss()
+        ok_button = WebDriverWait(self.driver,10).until(
+            EC.presence_of_element_located((By.XPATH,'//div[contains(@class,\'translate-y-0 modal relative w-full pointer-events-none transition-all duration- transform\')]//button[contains(@class,\'flex-1\')][normalize-space()=\'Ok\']'))\
+
+        )
+        ok_button.click()
         time.sleep(5)
 
 

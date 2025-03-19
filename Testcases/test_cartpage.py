@@ -62,8 +62,9 @@ class Test_Cart(BaseTest):
         totalprice = Cart(self.driver)
         totalprice.total_price()
 
-        # product_remove = Cart(self.driver)
-        # product_remove.remove_product_from_cart()
+        product_remove = Cart(self.driver)
+        product_remove.remove_product_from_cart()
+
 
 
 
