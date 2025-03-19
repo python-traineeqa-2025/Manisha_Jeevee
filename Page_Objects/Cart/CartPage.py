@@ -6,6 +6,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from Page_Objects.Cart.CartProperties import Cart_Properties
 from selenium.webdriver.support import expected_conditions as EC
 
+
+
 class Cart(Cart_Properties):
 
     def __init__(self,driver):
@@ -33,14 +35,43 @@ class Cart(Cart_Properties):
         except:
             return False
 
-    def cart_update(self):
+    def cart_increment_update(self):
 
         cart_increment_button = self.cart_increment_icon
         cart_increment_button.click()
-        time.sleep(10)
+        time.sleep(5)
+
+        quantity = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR,
+                                            'body > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)'))
+        )
+        quantity_text = quantity.text
+        print(f"Quantity of the product after product added: {quantity_text}")
+
+    def cart_decrement_update(self):
 
         cart_decrement_button = self.cart_decrement_icon
         cart_decrement_button.click()
+
+        quantity = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR,
+                                            'body > div:nth-child(1) > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)'))
+        )
+        quantity_text = quantity.text
+        print(f"Quantity of the product after product added: {quantity_text}")
+        time.sleep(5)
+
+
+    # def total_price(self):
+    #
+    #
+    #     total_price = self.total_price_input
+    #     total_price_text = total_price.text  # Correct method to get the text
+    #     return total_price_text
+
+
+
+
 
 
 

@@ -51,16 +51,16 @@ class Test_Cart(BaseTest):
 
 
         cart_increment = Cart(self.driver)
-        cart_increment.cart_update()
+        cart_increment.cart_increment_update()
 
         logging.info("one more item added to the cart successfully")
 
         cart_decrement = Cart(self.driver)
-        cart_decrement.cart_update()
+        cart_decrement.cart_decrement_update()
         logging.info("one item removed from the cart successfully")
 
-        time.sleep(5)
-
+        # totalprice = Cart(self.driver)
+        # totalprice.total_price()
 
 
 
