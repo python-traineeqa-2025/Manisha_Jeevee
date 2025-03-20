@@ -22,7 +22,7 @@ class Product_Filter(Filter_Properties):
 
         checkbox_category = self.driver.find_element(By.XPATH,'//input[@id=\'Skin\']')
         checkbox_category.click()
-        time.sleep(3)
+        time.sleep(5)
 
         checkbox_brand = self.driver.find_element(By.XPATH,'//input[@id=\'Mamaearth\']')
         self.driver.execute_script("arguments[0].scrollIntoView(true);", checkbox_brand)
@@ -42,13 +42,14 @@ class Product_Filter(Filter_Properties):
     def reset_filter(self):
         search_bar = self.searbar_input
         search_bar.click()
+        search_bar.clear()
         search_bar.send_keys("Blush")
         search_bar.send_keys(Keys.ENTER)
         time.sleep(5)
 
         checkbox_category = self.driver.find_element(By.XPATH, '//input[@id=\'Skin\']')
         checkbox_category.click()
-        time.sleep(1)
+        time.sleep(5)
 
         checkbox_brand = self.driver.find_element(By.XPATH, '//input[@id=\'Hair\']')
         checkbox_brand.click()
