@@ -7,5 +7,4 @@ class Checkout_Locators(object):
     SELECT_PROVINCE = (By.XPATH, "//input[@id='react-select-province-input']")
     PROVINCE_DROPDOWN = (By.XPATH,'//div[contains(@class, \'css-ackcql\')]')
     SELECT_CITY = (By.XPATH,'//div[@id=\'react-select-cities-placeholder\']')
-    # CITY_DROPDOWN = (By.XPATH,'//div[contains(@class,\' css-ackcql\')]')
 

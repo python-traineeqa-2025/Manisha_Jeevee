@@ -1,5 +1,6 @@
 import time
 
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
@@ -22,15 +23,24 @@ class Checkout(Checkout_Properties):
         add_address.click()
         time.sleep(5)
 
-        # select_province = self.select_province_input
-        # select_province.click()
-        # province_dropdown = self.province_dropdown_input
-        # self.driver.execute_script("arguments[0].value = 'Bagmati Province';", province_dropdown)
-        # # select_province.send_keys("Bagmati Province")
-        # time.sleep(5)
+        select_province = self.select_province_input
+        select_province.click()
+        select_province.send_keys("Bagmati Province")
+        time.sleep(1)
+        select_province.send_keys(Keys.ENTER)
+        time.sleep(5)
 
-        select_city = self.select_city_input
-        select_city.click()
+
+        select_city = WebDriverWait(self.driver,10).until(
+            EC.element_to_be_clickable((By.ID,'react-select-cities-placeholder'))
+
+        )
+        # select_city.click()
+        select_city.send_keys("Banepa")
+        select_province.send_keys(Keys.ENTER)
+        time.sleep(5)
+
+
         # time.sleep(2)
         # city_dropdown = self.select_city_input
         # self.driver.execute_script("arguments[0].value = 'Banepa';", city_dropdown)
