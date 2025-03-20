@@ -8,11 +8,11 @@ class Searchbar(Search_Properties):
         self.driver = driver
 
 
-    def search(self):
+    def search(self,product):
 
         search_bar = self.searchbar_input
         search_bar.click()
-        search_bar.send_keys("Sunscreen")
+        search_bar.send_keys(product)
         time.sleep(2)
 
         autosuggestion_dropdown = self.autosuggestion_input

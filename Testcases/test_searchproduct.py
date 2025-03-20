@@ -13,6 +13,8 @@ class Test_search(BaseTest):
         logging.info("Opened Site:")
 
         product_search = Searchbar(self.driver)
-        product_search.search()
+        product_search.search("Sunscreen")
         time.sleep(10)
+
+        product_invalid_search = Searchbar(self.driver)
 
