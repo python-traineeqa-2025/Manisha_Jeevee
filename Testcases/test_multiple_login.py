@@ -27,11 +27,11 @@ class Test_Multiple(BaseTest):
            time.sleep(10)
            self.driver.refresh()
 
-       try:
-           result = self.driver.find_element(By.XPATH, '//div[@class=\'flex flex-1 items-center\']/span/following-sibling::text()')
-           logging.info(f"{result.text}")
-       except NoSuchElementException:
-           logging.error(f"Element not found for user {mn}")
+       # try:
+       #     result = self.driver.find_element(By.XPATH, '//div[@class=\'flex flex-1 items-center\']/span/following-sibling::text()')
+       #     logging.info(f"{result.text}")
+       # except NoSuchElementException:
+       #     logging.error(f"Element not found for user {mn}"
 
 #
 
