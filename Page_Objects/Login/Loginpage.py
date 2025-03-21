@@ -3,13 +3,14 @@ import time
 from Page_Objects.Login.Loginproperties import Login_Properties
 from selenium.webdriver import ActionChains
 
-# from Testcases.Demotest import actions
+
 
 
 class Login_page(Login_Properties):
 
     def __init__(self,driver):
         self.driver = driver
+
 
 
 
@@ -34,6 +35,20 @@ class Login_page(Login_Properties):
 
         signin_button = self.login_btn_input
         signin_button.click()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
