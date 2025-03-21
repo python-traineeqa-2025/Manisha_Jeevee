@@ -29,7 +29,7 @@ class Test_Cart(BaseTest):
         time.sleep(10)
 
         product_search = Searchbar(self.driver)
-        product_search.search()
+        product_search.search("Sunscreen")
         time.sleep(10)
 
         cart_button =  Cart(self.driver)
