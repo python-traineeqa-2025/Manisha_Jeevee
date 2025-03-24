@@ -40,9 +40,7 @@ class Test_Cart(BaseTest):
         carticon.cart_icon()
         time.sleep(5)
 
-        # cart_product = Cart(self.driver)
-        # cart_product.cart_icon()
-
+      
         product_name = "Ethisun Sunscreen-100gm"
         if carticon.is_product_in_cart(product_name):
             logging.info(f"{product_name} is in the cart.")
