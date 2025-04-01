@@ -19,16 +19,10 @@ class Test_cart(BaseTest):
 
         product_search = Searchbar(self.driver)
         product_search.search("Sunscreen")
-        time.sleep(10)
+        time.sleep(5)
 
         cart_button = Cart(self.driver)
         cart_button.cart()
-        time.sleep(5)
+        # time.sleep(5)
 
         logging.info("Login Pape poped up:")
-        #
-        # jeevee_title = WebDriverWait(self.driver,10).until(
-        #     EC.presence_of_element_located((By.XPATH,'//div[@class=\'relative overflow-hidden object-cover w-//img[@alt=\'Jeevee Logo\']'))
-        #
-        # )
-        # logging.info(jeevee_title.text)

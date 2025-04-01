@@ -30,7 +30,7 @@ class Test_Cart(BaseTest):
 
         product_search = Searchbar(self.driver)
         product_search.search("Sunscreen")
-        time.sleep(10)
+        time.sleep(2)
 
         cart_button =  Cart(self.driver)
         cart_button.cart()
@@ -38,7 +38,7 @@ class Test_Cart(BaseTest):
 
         carticon = Cart(self.driver)
         carticon.cart_icon()
-        time.sleep(5)
+        # time.sleep(5)
 
       
         product_name = "Ethisun Sunscreen-100gm"

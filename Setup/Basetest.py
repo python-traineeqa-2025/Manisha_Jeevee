@@ -33,5 +33,5 @@ class BaseTest:
         with open(creds_path,'r') as f:
             self.creds = json.load(f)
 
-    # def teardown_method(self,method):
-    #     self.driver.quit()
+    def teardown_method(self,method):
+        self.driver.quit()

@@ -31,10 +31,10 @@ class Test_checkout(BaseTest):
         product_search.search("Sunscreen")
         logging.info("Product Searched Successfully")
 
-        cart_button = Cart(self.driver)
-        cart_button.cart()
-        time.sleep(10)
-        logging.info("Product added to the cart")
+        # cart_button = Cart(self.driver)
+        # cart_button.cart()
+        # time.sleep(10)
+        # logging.info("Product added to the cart")
 
         carticon = Cart(self.driver)
         carticon.cart_icon()

@@ -30,17 +30,15 @@ class Checkout(Checkout_Properties):
         select_province.send_keys(Keys.ENTER)
         time.sleep(5)
 
-
-
         select_city=self.select_city_input
         select_city.click()
-        select_city.send_keys("Banepa")
+        select_city.send_keys("Kathmandu  10 - New Baneshwor area")
         select_city.send_keys(Keys.ENTER)
         time.sleep(5)
 
         select_area=self.select_area_input
         select_area.click()
-        select_area.send_keys("28 Kilo")
+        select_area.send_keys("Bijuli Bazar")
         select_area.send_keys(Keys.ENTER)
         # time.sleep(10)
 
